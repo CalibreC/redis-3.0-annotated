@@ -6,7 +6,7 @@
             "label": "Make Project",  // launch.json中可以调用
             "type": "shell",  //  shell 或者 process
             "command": "make", 
-            "args": [],
+            "args": ["-j2"],
             "group": { "kind": "build" },
             "presentation": {
                 "reveal": "always", // 控制内置terminal是否前台运行，silent为出错时前台运行
