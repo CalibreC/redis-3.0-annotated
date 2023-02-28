@@ -1,0 +1,16 @@
+{
+    // https://code.visualstudio.com/docs/editor/debugging#_launchjson-attributes
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "preLaunchTask": "Build Project",
+            "program": "${workspaceFolder}/src/redis-server",
+            "args": [],
+            "cwd": "${workspaceFolder}",    // current working dir
+            "MIMode": "gdb"
+        }
+    ]
+}

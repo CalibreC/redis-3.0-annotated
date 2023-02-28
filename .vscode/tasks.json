@@ -1,0 +1,44 @@
+{
+    // https://code.visualstudio.com/docs/editor/tasks
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Make Project",  // launch.json中可以调用
+            "type": "shell",  //  shell 或者 process
+            "command": "make", 
+            "args": [],
+            "group": { "kind": "build" },
+            "presentation": {
+                "reveal": "always", // 控制内置terminal是否前台运行，silent为出错时前台运行
+                "panel": "shared",  //  task共享一个终端
+                "showReuseMessage": true,   // 显示“按任意键关闭terminal”
+            },
+            "problemMatcher": [ "$gcc" ],
+        },
+        {
+            "label": "Make Clean",  
+            "type": "shell",    
+            "command": "make", 
+            "args": ["clean"],
+            "group": { "kind": "build"},
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "showReuseMessage": true,   
+            },
+        },
+        {
+            // https://code.visualstudio.com/docs/editor/tasks#_compound-tasks
+            "label": "Run all",
+            "group": { "kind": "build" },
+            "dependsOrder": "sequence",
+            "dependsOn": ["Make Project", "Make Clean"]
+        },
+        {
+            "label": "Build Project",
+            "group": { "kind": "build" },
+            "dependsOrder": "sequence",
+            "dependsOn": ["Make Project"]
+        }
+    ]
+}
