@@ -297,7 +297,7 @@
 #define REDIS_LOG_RAW (1<<10) /* Modifier to log without timestamp */
 #define REDIS_DEFAULT_VERBOSITY REDIS_NOTICE
 
-/* Anti-warning macro... */
+/* Anti-warning macro... 对于有返回值的函数 不使用返回值会报warning 强制转换消除警告 */
 #define REDIS_NOTUSED(V) ((void) V)
 
 #define ZSKIPLIST_MAXLEVEL 32 /* Should be enough for 2^32 elements */

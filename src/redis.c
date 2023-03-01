@@ -2147,7 +2147,7 @@ void initServer() {
 
     /* Create the serverCron() time event, that's our main way to process
      * background operations. */
-    // 为 serverCron() 创建时间事件
+    // TODO: 进一步分析
     if(aeCreateTimeEvent(server.el, 1, serverCron, NULL, NULL) == AE_ERR) {
         redisPanic("Can't create the serverCron time event.");
         exit(1);
@@ -2155,8 +2155,7 @@ void initServer() {
 
     /* Create an event handler for accepting new connections in TCP and Unix
      * domain sockets. */
-    // 为 TCP 连接关联连接应答（accept）处理器
-    // 用于接受并应答客户端的 connect() 调用
+    // TODO: 进一步分析
     for (j = 0; j < server.ipfd_count; j++) {
         if (aeCreateFileEvent(server.el, server.ipfd[j], AE_READABLE,
             acceptTcpHandler,NULL) == AE_ERR)
@@ -2166,7 +2165,7 @@ void initServer() {
             }
     }
 
-    // 为本地套接字关联应答处理器
+    // TODO: 进一步分析
     if (server.sofd > 0 && aeCreateFileEvent(server.el,server.sofd,AE_READABLE,
         acceptUnixHandler,NULL) == AE_ERR) redisPanic("Unrecoverable error creating server.sofd file event.");
 
