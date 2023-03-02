@@ -48,9 +48,7 @@
 /*
  * 字典的操作状态
  */
-// 操作成功
 #define DICT_OK 0
-// 操作失败（或出错）
 #define DICT_ERR 1
 
 /* Unused arguments generate annoying warnings... */
@@ -129,9 +127,6 @@ typedef struct dictht {
 
 } dictht;
 
-/*
- * 字典
- */
 typedef struct dict {
 
     // 类型特定函数
@@ -140,7 +135,7 @@ typedef struct dict {
     // 私有数据
     void *privdata;
 
-    // 哈希表
+    // 哈希表 ht[1]只会在ht[0]rehash时使用
     dictht ht[2];
 
     // rehash 索引
